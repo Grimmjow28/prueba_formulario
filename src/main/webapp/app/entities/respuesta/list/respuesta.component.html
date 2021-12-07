@@ -1,0 +1,70 @@
+<div>
+  <h2 id="page-heading" data-cy="RespuestaHeading">
+    <span jhiTranslate="pruebaFormularioApp.respuesta.home.title">Respuestas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="pruebaFormularioApp.respuesta.home.refreshListLabel">Refresh List</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="respuestas?.length === 0">
+    <span jhiTranslate="pruebaFormularioApp.respuesta.home.notFound">No respuestas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="respuestas && respuestas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="pruebaFormularioApp.respuesta.numeroIdentificacion">Numero Identificacion</span></th>
+          <th scope="col"><span jhiTranslate="pruebaFormularioApp.respuesta.email">Email</span></th>
+          <th scope="col"><span jhiTranslate="pruebaFormularioApp.respuesta.comentarios">Comentarios</span></th>
+          <th scope="col"><span jhiTranslate="pruebaFormularioApp.respuesta.fechaHora">Fecha Hora</span></th>
+          <th scope="col"><span jhiTranslate="pruebaFormularioApp.respuesta.marcaPc">Marca Pc</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let respuesta of respuestas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/respuesta', respuesta.id, 'view']">{{ respuesta.id }}</a>
+          </td>
+          <td>{{ respuesta.numeroIdentificacion }}</td>
+          <td>{{ respuesta.email }}</td>
+          <td>{{ respuesta.comentarios }}</td>
+          <td>{{ respuesta.fechaHora | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="respuesta.marcaPc">
+              <!-- <a [routerLink]="['/marca-pc', respuesta.marcaPc?.id, 'view']">{{ respuesta.marcaPc?.String }}</a> -->
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/respuesta', respuesta.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" (click)="delete(respuesta)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

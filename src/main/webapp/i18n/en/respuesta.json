@@ -1,0 +1,28 @@
+{
+  "pruebaFormularioApp": {
+    "respuesta": {
+      "home": {
+        "title": "Respuestas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "fill the Next Form",
+        "createOrEditLabel": "fill the Next Form",
+        "notFound": "No Respuestas found"
+      },
+      "created": "A new Respuesta is created with identifier {{ param }}",
+      "updated": "A Respuesta is updated with identifier {{ param }}",
+      "deleted": "A Respuesta is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Respuesta {{ id }}?"
+      },
+      "detail": {
+        "title": "Respuesta"
+      },
+      "id": "ID",
+      "numeroIdentificacion": "Numero Identificacion",
+      "email": "Email",
+      "comentarios": "Comentarios",
+      "fechaHora": "Fecha Hora",
+      "marcaPc": "Marca Pc"
+    }
+  }
+}

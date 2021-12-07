@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="respuesta">
+      <h2 data-cy="respuestaDetailsHeading"><span jhiTranslate="pruebaFormularioApp.respuesta.detail.title">Respuesta</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ respuesta.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaFormularioApp.respuesta.numeroIdentificacion">Numero Identificacion</span></dt>
+        <dd>
+          <span>{{ respuesta.numeroIdentificacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaFormularioApp.respuesta.email">Email</span></dt>
+        <dd>
+          <span>{{ respuesta.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaFormularioApp.respuesta.comentarios">Comentarios</span></dt>
+        <dd>
+          <span>{{ respuesta.comentarios }}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaFormularioApp.respuesta.fechaHora">Fecha Hora</span></dt>
+        <dd>
+          <span>{{ respuesta.fechaHora | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="pruebaFormularioApp.respuesta.marcaPc">Marca Pc</span></dt>
+        <dd>
+          <div *ngIf="respuesta.marcaPc">
+            <!-- <a [routerLink]="['/marca-pc', respuesta.marcaPc?.id, 'view']">{{ respuesta.marcaPc?.String }}</a> -->
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/respuesta', respuesta.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

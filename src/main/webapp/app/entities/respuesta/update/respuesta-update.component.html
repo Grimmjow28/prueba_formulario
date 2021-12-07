@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-respuesta-heading"
+        data-cy="RespuestaCreateUpdateHeading"
+        jhiTranslate="pruebaFormularioApp.respuesta.home.createOrEditLabel"
+      >
+        Create or edit a Respuesta
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="pruebaFormularioApp.respuesta.numeroIdentificacion"
+            for="field_numeroIdentificacion"
+            >Numero Identificacion</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="numeroIdentificacion"
+            id="field_numeroIdentificacion"
+            data-cy="numeroIdentificacion"
+            formControlName="numeroIdentificacion"
+            pattern=".{8,10}"
+          />
+          <span [hidden]="!editForm.get('numeroIdentificacion')?.hasError('pattern')">"debe tener un valor entre 8 y 10 carateres"</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="pruebaFormularioApp.respuesta.email" for="field_email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="field_email"
+            data-cy="email"
+            formControlName="email"
+            pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="pruebaFormularioApp.respuesta.marcaPc" for="field_marcaPc">Marca Pc</label>
+          <select class="form-control" id="field_marcaPc" data-cy="marcaPc" name="marcaPc" formControlName="marcaPc">
+            <option
+              [ngValue]="marcaPcOption.id === editForm.get('marcaPc')!.value?.id ? editForm.get('marcaPc')!.value : marcaPcOption"
+              *ngFor="let marcaPcOption of marcaPcsSharedCollection; trackBy: trackMarcaPcById"
+            >
+              {{ marcaPcOption?.nombreMarca }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="pruebaFormularioApp.respuesta.comentarios" for="field_comentarios"
+            >Comentarios</label
+          >
+          <textarea
+            name="textarea"
+            class="form-control"
+            name="comentarios"
+            id="field_comentarios"
+            data-cy="comentarios"
+            formControlName="comentarios"
+            rows="3"
+            cols="50"
+          >
+Write something here</textarea
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="pruebaFormularioApp.respuesta.fechaHora" for="field_fechaHora">Fecha Hora</label>
+          <div class="d-flex">
+            <input
+              id="field_fechaHora"
+              data-cy="fechaHora"
+              type="datetime-local"
+              class="form-control"
+              name="fechaHora"
+              formControlName="fechaHora"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "pruebaFormularioApp": {
+    "marcaPc": {
+      "home": {
+        "title": "Marca Pcs",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Marca Pc",
+        "createOrEditLabel": "Crear o editar Marca Pc",
+        "notFound": "Ningún Marca Pcs encontrado"
+      },
+      "created": "Un nuevo Marca Pc ha sido creado con el identificador {{ param }}",
+      "updated": "Un Marca Pc ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Marca Pc ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Marca Pc {{ id }}?"
+      },
+      "detail": {
+        "title": "Marca Pc"
+      },
+      "id": "ID",
+      "nombreMarca": "Nombre Marca"
+    }
+  }
+}

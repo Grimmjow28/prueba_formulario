@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <!--
+        Added the constraints for entity Respuesta.
+    -->
+    <changeSet id="20211206210917-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="marca_pc_id"
+                                 baseTableName="respuesta"
+                                 constraintName="fk_respuesta__marca_pc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="marca_pc"/>
+    </changeSet>
+</databaseChangeLog>

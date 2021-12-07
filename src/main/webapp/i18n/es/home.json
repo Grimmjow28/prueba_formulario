@@ -1,0 +1,11 @@
+{
+  "home": {
+    "title": "¡Bienvenido!",
+    "subtitle": "Esta es su página de inicio",
+    "logged": {
+      "message": "Está conectado como \"{{username}}\".",
+      "creado": "La Respuesta Fue creada con Exito, Gracias por Participar"
+    },
+    "github": "GitHub"
+  }
+}

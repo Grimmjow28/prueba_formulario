@@ -1,0 +1,26 @@
+{
+  "pruebaFormularioApp": {
+    "formularioEncuesta": {
+      "home": {
+        "title": "Formulario Encuestas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Formulario Encuesta",
+        "createOrEditLabel": "Crear o editar Formulario Encuesta",
+        "notFound": "Ningún Formulario Encuestas encontrado"
+      },
+      "created": "Un nuevo Formulario Encuesta ha sido creado con el identificador {{ param }}",
+      "updated": "Un Formulario Encuesta ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Formulario Encuesta ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Formulario Encuesta {{ id }}?"
+      },
+      "detail": {
+        "title": "Formulario Encuesta"
+      },
+      "id": "ID",
+      "numeroIdentificacion": "Numero Identificacion",
+      "email": "Email",
+      "comentarios": "Comentarios"
+    }
+  }
+}
